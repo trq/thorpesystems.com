@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>thorpesystems.com</title>
+    <meta name="description" content="">
+    <meta name="author" content="Tony R Quilkey">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/my.js"></script>
+        <link rel="stylesheet" type="text/css" href="/assets/css/my.css">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+  </head>
+  <body>
+  <div class="topnav">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="brand">
+            <a href="/">
+              thorpesystems.com
+            </a>
+          </div>
+          <div class="nav-collapse">
+            <ul class="nav pull-right">
+              <li><a href="/">Home</a></li>
+              <li><a href="/blog/index.html">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+Well, it's been about six weeks in the making but I finally got the first <a href="https://github.com/proem/proem/issues?sort=created&direction=desc&state=closed&page=1&milestone=1" title="Github">milestone (0.1.0)</a> complete on the <a href="http://proemframework.org" title="Proem Framework" target="_blank">Proem Framework</a>. This marks the implementation of allot of the basic infrastructure that the rest of the framework will be built on top of.
+
+This infrastructure includes:
+<ul>
+<li>An <a href="https://github.com/proem/proem/wiki/The-Autoloader" title="Autoloader">Autoloader</a> which implements the PSR-0 standard.</li>
+<li>An <a href="https://github.com/proem/proem/wiki/The-Opt-Component" title="Options Component">Options Component</a> enabling a type of named arguments implementation.</li>
+<li>An <a href="https://github.com/proem/proem/wiki/Overriding-framework-classes" title="Cascading Filesystem for PHP">Cascading Filesystem</a> enabling framework classes and traits to be easily overridden.</li>
+<li>An Asset component used to handle dependency injection via DI containers.</li>
+<li>A Filter Chain which will be used to control the bootstrap and execution flow of the framework.</li>
+<li>An Events component making it easy to integrate the concept of plugins and modules.</li>
+</ul><br />
+
+At this stage it's still pretty difficult for someone just looking at the code to invision how it will all tie together, but this should become allot clearer as work begins on the <a href="https://github.com/proem/proem/issues?milestone=2" title="Github">0.2.0 milestone</a>. In fact within the next few days I will be working on the Proem object which will be responsible for bootstrapping the framework as well as the default Chain events which are used to configure all required Assets.
+
+I am already starting to get <a href="https://github.com/proem/proem/watchers" title="Github">a little bit of interest</a> in the project but would of course appreciate all the help I can get. Over the next few weeks things should become allot easier to understand as a whole, so if your interested, <a href="https://github.com/proem/proem" title="Fork Proem">Fork Proem</a> and give me a hand. I also have <a href="http://www.php.net/archive/2012.php#id2012-01-07-2" title="PHP5.4">PHP5.4</a> sandboxes available via ssh if need be.
+  </div>
+  <div class="row">
+    <div class="span6 gen-footer pull-right">
+      Generated from <a href="https://github.com/trq/thorpesystems.com-src">Source</a> by <a href="https://github.com/trq/Gen">Gen</a> 28/06/2013  22:56
+    </div>
+  </div>
+  </body>
+</html>

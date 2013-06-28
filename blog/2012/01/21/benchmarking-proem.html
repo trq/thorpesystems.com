@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>thorpesystems.com</title>
+    <meta name="description" content="">
+    <meta name="author" content="Tony R Quilkey">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/my.js"></script>
+        <link rel="stylesheet" type="text/css" href="/assets/css/my.css">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+  </head>
+  <body>
+  <div class="topnav">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="brand">
+            <a href="/">
+              thorpesystems.com
+            </a>
+          </div>
+          <div class="nav-collapse">
+            <ul class="nav pull-right">
+              <li><a href="/">Home</a></li>
+              <li><a href="/blog/index.html">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+I just pushed the bootstrap mechanism for Proem to <a href="https://github.com/proem/proem/commit/607d53a0c90124da30dee573816c0754fcfcd79b" title="GitHub">GitHub</a> and thought I might take a look at it's current memory usage.
+
+This is just a very simple benchmark of the bootstrap process. Keep in mind nothing really happens during this call to init(). It's just the infrastructure. The Filter chain is setup and filled with Response, Request, Route & Dispatch inBound & outBound events. These events then trigger a further 4 events each. It is these further triggered "Events" that the framework (and any applications) will eventually listen for and take action on to build a response.
+
+The script is simple:
+
+proem.php
+<pre lang="php">
+#!/usr/bin/php
+<?php
+
+function convert($size)
+{
+    $unit = array('b','kb','mb','gb','tb','pb');
+    return @round($size/pow(1024,($i=floor(log($size,1024)))),2).' '.$unit[$i];
+}
+
+echo convert(memory_get_usage(true)) . "\n";
+
+require_once 'src/proem/lib/Proem/Autoloader.php';
+
+echo convert(memory_get_usage(true)) . "\n";
+
+$loader = new Proem\AutoLoader();
+$loader->registerNamespaces([
+    'Proem' => 'src/proem/lib'
+])->register();
+
+echo convert(memory_get_usage(true)) . "\n";
+
+(new Proem\Proem)->init();
+
+echo convert(memory_get_usage(true)) . "\n";
+</pre>
+
+And the results:
+
+<pre lang="bash">
+trq@proem.dev[~]+ time ./proem.php 
+256 kb
+512 kb
+512 kb
+1.25 mb
+
+real	0m0.015s
+user	0m0.007s
+sys	0m0.007s
+</pre>
+  </div>
+  <div class="row">
+    <div class="span6 gen-footer pull-right">
+      Generated from <a href="https://github.com/trq/thorpesystems.com-src">Source</a> by <a href="https://github.com/trq/Gen">Gen</a> 28/06/2013  22:56
+    </div>
+  </div>
+  </body>
+</html>

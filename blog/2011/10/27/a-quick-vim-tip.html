@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>thorpesystems.com</title>
+    <meta name="description" content="">
+    <meta name="author" content="Tony R Quilkey">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/my.js"></script>
+        <link rel="stylesheet" type="text/css" href="/assets/css/my.css">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+  </head>
+  <body>
+  <div class="topnav">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="brand">
+            <a href="/">
+              thorpesystems.com
+            </a>
+          </div>
+          <div class="nav-collapse">
+            <ul class="nav pull-right">
+              <li><a href="/">Home</a></li>
+              <li><a href="/blog/index.html">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+At work I often have to work on large complex <a title="mysql" href="http://mysql.org" target="_blank">mysql</a> queries, not wanting to leave <a title="vim" href="http://vim.org" target="_blank">vim</a> when I don't have to I have this great little shortcut that allows me to execute queries directly from <a title="vim" href="http://vim.org" target="_blank">vim</a>. All I need do is name the file the same as the database I want to execute the query against, save it (I use the .sql file extension - though it doesn't require it), then hit <em>leader m</em>. Assuming your setup properly, it will ssh into my dev-server and execute the query in <a title="mysql" href="http://mysql.org" target="_blank">mysql</a>.
+
+Just put this in your ~/.vimrc
+<pre lang="vim">nmap <silent> <Leader>m :!ssh dev-server mysql %:r < %<CR></pre>
+  </div>
+  <div class="row">
+    <div class="span6 gen-footer pull-right">
+      Generated from <a href="https://github.com/trq/thorpesystems.com-src">Source</a> by <a href="https://github.com/trq/Gen">Gen</a> 28/06/2013  22:56
+    </div>
+  </div>
+  </body>
+</html>

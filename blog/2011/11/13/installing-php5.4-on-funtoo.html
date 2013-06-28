@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>thorpesystems.com</title>
+    <meta name="description" content="">
+    <meta name="author" content="Tony R Quilkey">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/my.js"></script>
+        <link rel="stylesheet" type="text/css" href="/assets/css/my.css">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+  </head>
+  <body>
+  <div class="topnav">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="brand">
+            <a href="/">
+              thorpesystems.com
+            </a>
+          </div>
+          <div class="nav-collapse">
+            <ul class="nav pull-right">
+              <li><a href="/">Home</a></li>
+              <li><a href="/blog/index.html">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+<a href="http://gentoo.org" title="Gentoo">Gentoo</a> & more recently <a href="http://funtoo.org" title="Funtoo">Funtoo</a> have long been my <a href="http://www.gnu.org/gnu/linux-and-gnu.html" title="GNU/Linux">GNU/Linux</a> distributions of choice. Why? Not because of the performance or flexibility you inherently gain or from installing packages from source, but because you can (if you wish) use bleeding edge software.
+
+Take <a href="http://php.net" title="PHP">PHP</a> for instance. I do allot of development in <a href="http://php.net" title="PHP">PHP</a> and as such like to keep up to date with the latest goings on. <a href="http://www.php.net/archive/2011.php#id2011-11-11-1">PHP5.4rc1</a> was released 2 days ago, and while most distributions won't have a package available for at least six months after 5.4 is stable, <a href="http://funtoo.org" title="Funtoo">Funtoo</a> has a package available now. All you need do is unmask it.
+
+I setup an <a href="http://openvz.org" title="OpenVZ">OpenVZ</a> VM just to play with it, and the process was simple.
+
+<pre lang="shell">
+$ sudo emerge --sync
+$ echo 'PHP_TARGETS="php5-4"' | sudo tee -a /etc/make.conf
+$ echo "=dev-lang/php-5.4.0_rc1" | sudo tee -a /etc/portage/package.unmask
+$ sudo emerge php
+</pre>
+
+Simple.
+
+<pre lang="shell">
+$ php -v
+</pre>
+
+Now produces:
+
+<pre>
+PHP 5.4.0-rc1-pl0-gentoo (cli) (built: Nov 12 2011 16:15:52) 
+Copyright (c) 1997-2011 The PHP Group
+Zend Engine v2.4.0, Copyright (c) 1998-2011 Zend Technologies
+</pre>
+  </div>
+  <div class="row">
+    <div class="span6 gen-footer pull-right">
+      Generated from <a href="https://github.com/trq/thorpesystems.com-src">Source</a> by <a href="https://github.com/trq/Gen">Gen</a> 28/06/2013  22:56
+    </div>
+  </div>
+  </body>
+</html>
